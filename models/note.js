@@ -17,6 +17,7 @@ Note.init(
     },
     important: {
       type: DataTypes.BOOLEAN,
+      allowNull: false,
     },
     date: {
       type: DataTypes.DATE,
@@ -25,7 +26,7 @@ Note.init(
   {
     sequelize,
     underscored: true,
-    timestamps: false,
+    // timestamps: false,
     modelName: "note",
   }
 );

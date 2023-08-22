@@ -15,6 +15,9 @@ User.init(
       type: DataTypes.STRING,
       unique: true,
       allowNull: false,
+      validate: {
+        isEmail: true,
+      },
     },
     name: {
       type: DataTypes.STRING,
@@ -24,7 +27,7 @@ User.init(
   {
     sequelize,
     underscored: true,
-    timestamps: false,
+    // timestamps: false,
     modelName: "user",
   }
 );
