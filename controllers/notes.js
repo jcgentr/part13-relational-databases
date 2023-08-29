@@ -2,7 +2,7 @@ const router = require("express").Router();
 const { Op } = require("sequelize");
 
 const { User, Note } = require("../models");
-const { tokenExtractor } = require("../util/tokenExtractor");
+const { tokenExtractor } = require("../util/middleware");
 
 const noteFinder = async (req, res, next) => {
   req.note = await Note.findByPk(req.params.id);

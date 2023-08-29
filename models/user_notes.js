@@ -2,33 +2,32 @@ const { Model, DataTypes } = require("sequelize");
 
 const { sequelize } = require("../util/db");
 
-class Note extends Model {}
+class UserNotes extends Model {}
 
-Note.init(
+UserNotes.init(
   {
     id: {
       type: DataTypes.INTEGER,
       primaryKey: true,
       autoIncrement: true,
     },
-    content: {
-      type: DataTypes.TEXT,
+    userId: {
+      type: DataTypes.INTEGER,
       allowNull: false,
+      references: { model: "users", key: "id" },
     },
-    important: {
-      type: DataTypes.BOOLEAN,
+    noteId: {
+      type: DataTypes.INTEGER,
       allowNull: false,
-    },
-    date: {
-      type: DataTypes.DATE,
+      references: { model: "notes", key: "id" },
     },
   },
   {
     sequelize,
     underscored: true,
     timestamps: false,
-    modelName: "note",
+    modelName: "user_notes",
   }
 );
 
-module.exports = Note;
+module.exports = UserNotes;
